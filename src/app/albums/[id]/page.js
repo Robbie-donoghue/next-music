@@ -1,7 +1,5 @@
-export default Page({ params });
-{
+export default function Page({ params }) {
   //api stuff, once deployed from vercel
-
   return (
     <div>
       <h1>Posts</h1>
