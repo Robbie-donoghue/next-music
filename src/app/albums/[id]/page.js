@@ -5,11 +5,11 @@ export default Page({ params });
   return (
     <div>
       <h1>Posts</h1>
-      <ul>
+      {/* <ul>
         {posts.rows.map((post) => (
           <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
+        ))} */}
+      {/* </ul> */}
     </div>
   );
 }
