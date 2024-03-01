@@ -31,6 +31,12 @@ export default async function Page({ params }) {
         <textarea id="comment" name="comments"></textarea>
         <button type="submit">submit</button>
       </form>
+      {comments.map((comment) => (
+        <div key={comment.comment_id}>
+          <p> {comment.username}</p>
+          <p> {comment.comment}</p>
+        </div>
+      ))}
     </div>
   );
 }
