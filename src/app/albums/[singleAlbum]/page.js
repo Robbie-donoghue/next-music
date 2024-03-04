@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+
 export default async function Page({ params }) {
   //api stuff, once deployed from vercel
   console.log(params.singleAlbum);
@@ -20,11 +21,11 @@ export default async function Page({ params }) {
     console.log("comment saved");
   }
   return (
-    <div className="`bg-zinc-700 flex flex-col items-center">
+    <div className="`bg-zinc-700 flex flex-col items-center bg-coral">
       <h2>{album.album_name}</h2>
       <h3>{album.artist}</h3>
       <h1 className="font-bold underline ">Comments</h1>
-      <div className="flex">
+      <div className="flex bg-coral">
         <form action={handleComments}>
           <label htmlFor="username">Username</label>
           <input
@@ -44,7 +45,7 @@ export default async function Page({ params }) {
       {/* {comments.map((comment, index) => (
         <div key={index}> */}
       {comments.map((comment) => (
-        <div key={comment.comment_id}>
+        <div className="bg-coral" key={comment.comment_id}>
           <p> {comment.username}</p>
           <p> {comment.comment}</p>
         </div>
