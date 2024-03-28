@@ -20,6 +20,7 @@ export default async function Page() {
           </div>
         ))}
       </ul>
+      <h3>Click an album to add a comment!</h3>
     </div>
   );
 }

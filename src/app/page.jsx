@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SignIn, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -9,10 +10,7 @@ export default function Home() {
         <Link href="/albums" className="text-center p-4 m-4 text-lg">
           View critically acclaimed albums
         </Link>
-        <Link href="/albums/1" className="text-center p-4 m-4 text-lg">
-          {" "}
-          Add a comment!
-        </Link>
+        <SignInButton />
       </nav>
     </div>
   );

@@ -1,5 +1,6 @@
 import { sql } from "@vercel/postgres";
-
+import { notFound } from "next/navigation";
+import PopoverDemo from "@/app/components/PopupComponent";
 export default async function Page({ params }) {
   //api stuff, once deployed from vercel
   console.log(params.singleAlbum);
@@ -19,6 +20,10 @@ export default async function Page({ params }) {
     const username = formData.get("username");
     await sql`INSERT INTO comments (username, comment, album_id) VALUES (${username}, ${comment}, ${album.album_id}) `;
     console.log("comment saved");
+  }
+
+  if (!album) {
+    notFound();
   }
   return (
     <div className="`bg-zinc-700 flex flex-col items-center bg-coral">
@@ -47,9 +52,18 @@ export default async function Page({ params }) {
       {comments.map((comment) => (
         <div className="bg-coral" key={comment.comment_id}>
           <p> {comment.username}</p>
-          <p> {comment.comment}</p>
+          <div>
+            <p> {comment.comment}</p>
+          </div>
         </div>
       ))}
+      <div>
+        <PopoverDemo>
+          <p className="flex block align-content: center display: block">
+            click me{" "}
+          </p>
+        </PopoverDemo>
+      </div>
     </div>
   );
 }
